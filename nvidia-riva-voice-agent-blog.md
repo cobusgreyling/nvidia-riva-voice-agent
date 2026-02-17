@@ -191,7 +191,25 @@ export GROK_API_KEY="your-key"     # From x.ai
 python3 riva_voice_agent_demo.py
 ```
 
-The demo opens a web UI where you can speak (or upload audio), see the transcription, and hear the AI agent's response.
+The demo opens a Gradio web UI at `http://127.0.0.1:7860`:
+
+![Riva Voice Agent UI](riva_ui_empty.jpg)
+*The Gradio interface — record audio, upload a file, or type text. Input on the left, output on the right.*
+
+You can type a question and the agent responds with text (via Grok) and spoken audio (via Riva TTS):
+
+![Text input with TTS response](riva_ui_text_response.jpg)
+*Text mode: "What is the current weather in Cape Town?" — Grok responds, Riva speaks it back.*
+
+Or upload an audio file for the full ASR pipeline:
+
+![Audio uploaded for ASR](riva_ui_audio_uploaded.jpg)
+*An audio file uploaded and ready to send to Riva ASR.*
+
+The full pipeline in action — audio transcribed by Riva ASR, processed by Grok 3 Fast, and spoken back via Riva TTS:
+
+![Full ASR + LLM + TTS pipeline](riva_ui_full_pipeline.jpg)
+*Full round-trip: Riva ASR transcribes "Hello, this is a test of the Nvidia Riva speech pipeline" — Grok responds — Riva TTS speaks the response.*
 
 ---
 
