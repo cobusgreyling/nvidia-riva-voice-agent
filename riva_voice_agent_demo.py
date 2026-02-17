@@ -168,7 +168,7 @@ def synthesize_speech(text):
     )
 
     # Save to WAV file
-    output_path = tempfile.mktemp(suffix=".wav", dir="/tmp/claude")
+    output_path = tempfile.mktemp(suffix=".wav")
     with wave.open(output_path, "wb") as wf:
         wf.setnchannels(1)
         wf.setsampwidth(2)
@@ -219,7 +219,7 @@ def clear_conversation():
 
 # --- Gradio Web UI ---
 
-with gr.Blocks(title="NVIDIA Riva Voice Agent", theme=gr.themes.Soft()) as demo:
+with gr.Blocks(title="NVIDIA Riva Voice Agent") as demo:
     gr.Markdown(
         """
         # NVIDIA Riva Voice Agent
@@ -286,4 +286,4 @@ if __name__ == "__main__":
     print("  NVIDIA Riva Voice Agent")
     print("  ASR: Riva Parakeet  |  LLM: Grok 3 Fast  |  TTS: Riva Magpie")
     print("=" * 60)
-    demo.launch()
+    demo.launch(allowed_paths=[tempfile.gettempdir()])
